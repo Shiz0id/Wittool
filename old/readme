@@ -1,1 +1,15 @@
+You do not need these to mod. They are the tool's parts, and the proof it is correct.
 
+File	What it is
+wit.py	The format itself: header, how the format is chosen, where each level sits. Every rule names the place in main.dol that proves it.
+witwrite.py	Building a .wit from pixels.
+witpix.py	Turning stored pixels back into an image.
+witcheck.py	The rules from section 5, and the code in the game that enforces each one.
+witxref.py	Reading texture IDs out of a model.
+png.py	A small PNG reader and writer, so no image library is needed.
+witcorpus.py	Tests. See below.
+Running the tests
+python tools/wii/witcorpus.py sizes       # predicts every file's length from its header
+python tools/wii/witcorpus.py mips        # checks the pixel layout is read correctly
+python tools/wii/witcorpus.py roundtrip   # decodes and re-encodes real textures
+mips needs numpy. The others do not. roundtrip is slow, because the compressor is plain Python.
